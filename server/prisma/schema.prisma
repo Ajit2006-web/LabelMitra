@@ -1,0 +1,399 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// -------------------------------------------------------------
+// USER & PROFILE MANAGEMENT (Phase 1 Core)
+// -------------------------------------------------------------
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum DietaryPreference {
+  VEGETARIAN
+  VEGAN
+  EGGETARIAN
+  NON_VEGETARIAN
+  OTHER
+}
+
+model User {
+  id              String           @id @default(uuid())
+  email           String           @unique
+  passwordHash    String           @map("password_hash")
+  role            UserRole         @default(USER)
+  isActive        Boolean          @default(true) @map("is_active")
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @updatedAt @map("updated_at")
+
+  profile         UserProfile?
+  allergies       UserAllergy[]
+  preferences     UserPreference[]
+  scans           Scan[]
+  complaints      Complaint[]
+  recommendations Recommendation[]
+
+  @@map("users")
+}
+
+model UserProfile {
+  id                String            @id @default(uuid())
+  userId            String            @unique @map("user_id")
+  fullName          String            @map("full_name")
+  ageGroup          String?           @map("age_group")
+  dietaryPreference DietaryPreference @default(VEGETARIAN) @map("dietary_preference")
+  createdAt         DateTime          @default(now()) @map("created_at")
+  updatedAt         DateTime          @updatedAt @map("updated_at")
+
+  user              User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_profiles")
+}
+
+model UserAllergy {
+  id           String   @id @default(uuid())
+  userId       String   @map("user_id")
+  allergenName String   @map("allergen_name")
+  severity     String?  @default("Moderate")
+  notes        String?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, allergenName])
+  @@map("user_allergies")
+}
+
+model UserPreference {
+  id              String   @id @default(uuid())
+  userId          String   @map("user_id")
+  preferenceKey   String   @map("preference_key")
+  preferenceValue String   @default("true") @map("preference_value")
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, preferenceKey])
+  @@map("user_preferences")
+}
+
+// -------------------------------------------------------------
+// PRODUCT & INGREDIENT CATALOG
+// -------------------------------------------------------------
+
+enum VegStatus {
+  VEG
+  NON_VEG
+  UNKNOWN
+}
+
+enum VerificationStatus {
+  VERIFIED
+  UNVERIFIED
+  PENDING_REVIEW
+}
+
+model Product {
+  id                  String             @id @default(uuid())
+  name                String
+  brand               String
+  category            String
+  barcode             String?            @unique
+  fssaiLicense        String?            @map("fssai_license")
+  netQuantity         String?            @map("net_quantity")
+  mrp                 Decimal?           @db.Decimal(10, 2)
+  manufacturerName    String?            @map("manufacturer_name")
+  manufacturerAddress String?            @map("manufacturer_address")
+  vegStatus           VegStatus          @default(UNKNOWN) @map("veg_status")
+  source              String             @default("Curated Indian Packaged Food Dataset")
+  verificationStatus  VerificationStatus @default(VERIFIED) @map("verification_status")
+  createdAt           DateTime           @default(now()) @map("created_at")
+  updatedAt           DateTime           @updatedAt @map("updated_at")
+
+  images              ProductImage[]
+  productIngredients  ProductIngredient[]
+  nutrition           Nutrition?
+  scans               Scan[]
+  complaints          Complaint[]
+  recommendedAs       Recommendation[]   @relation("RecommendedProduct")
+
+  @@index([name])
+  @@index([brand])
+  @@index([category])
+  @@map("products")
+}
+
+enum ImageSideType {
+  FRONT
+  BACK
+  SIDE
+  INGREDIENTS
+  NUTRITION
+  OTHER
+}
+
+model ProductImage {
+  id         String        @id @default(uuid())
+  productId  String        @map("product_id")
+  imageType  ImageSideType @default(FRONT) @map("image_type")
+  filePath   String        @map("file_path")
+  fileUrl    String        @map("file_url")
+  mimeType   String        @map("mime_type")
+  fileSize   Int           @map("file_size")
+  createdAt  DateTime      @default(now()) @map("created_at")
+
+  product    Product       @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("product_images")
+}
+
+model Ingredient {
+  id                 String              @id @default(uuid())
+  canonicalName      String              @unique @map("canonical_name")
+  synonyms           String[]
+  category           String?
+  insNumber          String?             @map("ins_number")
+  allergenGroup      String?             @map("allergen_group")
+  concerns           String?
+  function           String?
+  regulatoryStatus   String?             @map("regulatory_status")
+  source             String              @map("source")
+  sourceUrl          String?             @map("source_url")
+  verifiedAt         DateTime?           @map("verified_at")
+  createdAt          DateTime            @default(now()) @map("created_at")
+  updatedAt          DateTime            @updatedAt @map("updated_at")
+
+  productIngredients ProductIngredient[]
+
+  @@index([canonicalName])
+  @@index([allergenGroup])
+  @@index([insNumber])
+  @@map("ingredients")
+}
+
+model ProductIngredient {
+  id            String      @id @default(uuid())
+  productId     String      @map("product_id")
+  ingredientId  String?     @map("ingredient_id")
+  rawText       String      @map("raw_text")
+  positionOrder Int         @default(1) @map("position_order")
+  percentage    Decimal?    @db.Decimal(5, 2)
+  isAllergen    Boolean     @default(false) @map("is_allergen")
+  createdAt     DateTime    @default(now()) @map("created_at")
+
+  product       Product     @relation(fields: [productId], references: [id], onDelete: Cascade)
+  ingredient    Ingredient? @relation(fields: [ingredientId], references: [id], onDelete: SetNull)
+
+  @@map("product_ingredients")
+}
+
+model Nutrition {
+  id            String   @id @default(uuid())
+  productId     String   @unique @map("product_id")
+  perUnit       String   @default("100g") @map("per_unit")
+  servingSize   String?  @map("serving_size")
+  energyKcal    Decimal? @map("energy_kcal") @db.Decimal(8, 2)
+  proteinG      Decimal? @map("protein_g") @db.Decimal(8, 2)
+  carbohydrateG Decimal? @map("carbohydrate_g") @db.Decimal(8, 2)
+  sugarG        Decimal? @map("sugar_g") @db.Decimal(8, 2)
+  addedSugarG   Decimal? @map("added_sugar_g") @db.Decimal(8, 2)
+  fatG          Decimal? @map("fat_g") @db.Decimal(8, 2)
+  saturatedFatG Decimal? @map("saturated_fat_g") @db.Decimal(8, 2)
+  transFatG     Decimal? @map("trans_fat_g") @db.Decimal(8, 2)
+  sodiumMg      Decimal? @map("sodium_mg") @db.Decimal(8, 2)
+  dietaryFiberG Decimal? @map("dietary_fiber_g") @db.Decimal(8, 2)
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  product       Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("nutrition")
+}
+
+// -------------------------------------------------------------
+// SCAN, OCR & EXTRACTION PIPELINE
+// -------------------------------------------------------------
+
+enum ScanStatus {
+  PENDING
+  PROCESSING
+  NEEDS_VERIFICATION
+  COMPLETED
+  FAILED
+}
+
+model Scan {
+  id                String              @id @default(uuid())
+  userId            String              @map("user_id")
+  productId         String?             @map("product_id")
+  status            ScanStatus          @default(PENDING)
+  extractedData     Json?               @map("extracted_data")
+  ocrConfidence     Decimal?            @map("ocr_confidence") @db.Decimal(5, 2)
+  overallSummary    Json?               @map("overall_summary")
+  createdAt         DateTime            @default(now()) @map("created_at")
+  updatedAt         DateTime            @updatedAt @map("updated_at")
+
+  user              User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product           Product?            @relation(fields: [productId], references: [id], onDelete: SetNull)
+  ocrResults        OcrResult[]
+  complianceResults ComplianceResult[]
+  recommendations   Recommendation[]
+  complaints        Complaint[]
+
+  @@map("scans")
+}
+
+model OcrResult {
+  id              String        @id @default(uuid())
+  scanId          String        @map("scan_id")
+  imageSide       ImageSideType @default(FRONT) @map("image_side")
+  imagePath       String        @map("image_path")
+  engineUsed      String        @default("PaddleOCR") @map("engine_used")
+  rawText         String        @map("raw_text") @db.Text
+  boundingBoxes   Json?         @map("bounding_boxes")
+  confidenceScore Decimal       @map("confidence_score") @db.Decimal(5, 2)
+  createdAt       DateTime      @default(now()) @map("created_at")
+
+  scan            Scan          @relation(fields: [scanId], references: [id], onDelete: Cascade)
+
+  @@map("ocr_results")
+}
+
+// -------------------------------------------------------------
+// FSSAI COMPLIANCE ENGINE & AUDIT TRAIL
+// -------------------------------------------------------------
+
+enum ComplianceStatus {
+  COMPLIANT
+  POTENTIAL_ISSUE
+  CANNOT_VERIFY
+  NOT_APPLICABLE
+}
+
+model ComplianceRule {
+  id                  String             @id @default(uuid())
+  ruleCode            String             @unique @map("rule_code")
+  title               String
+  requirement         String             @db.Text
+  category            String
+  conditionLogic      Json               @map("condition_logic")
+  expectedDeclaration String             @map("expected_declaration")
+  officialSource      String             @map("official_source")
+  sourceUrl           String             @map("source_url")
+  regulationReference String             @map("regulation_reference")
+  version             String             @default("1.0")
+  effectiveDate       DateTime           @map("effective_date")
+  isActive            Boolean            @default(true) @map("is_active")
+  updatedAt           DateTime           @updatedAt @map("updated_at")
+
+  complianceResults   ComplianceResult[]
+
+  @@map("compliance_rules")
+}
+
+model ComplianceResult {
+  id                  String           @id @default(uuid())
+  scanId              String           @map("scan_id")
+  ruleId              String           @map("rule_id")
+  status              ComplianceStatus
+  finding             String
+  reason              String           @db.Text
+  evidenceText        String?          @map("evidence_text") @db.Text
+  evidenceImageCoords Json?            @map("evidence_image_coords")
+  createdAt           DateTime         @default(now()) @map("created_at")
+
+  scan                Scan             @relation(fields: [scanId], references: [id], onDelete: Cascade)
+  rule                ComplianceRule   @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+
+  @@map("compliance_results")
+}
+
+// -------------------------------------------------------------
+// RAG KNOWLEDGE BASE
+// -------------------------------------------------------------
+
+model KnowledgeDocument {
+  id              String           @id @default(uuid())
+  title           String
+  documentType    String           @map("document_type")
+  publisher       String
+  sourceUrl       String           @map("source_url")
+  publicationDate DateTime?        @map("publication_date")
+  isVerified      Boolean          @default(true) @map("is_verified")
+  createdAt       DateTime         @default(now()) @map("created_at")
+
+  chunks          KnowledgeChunk[]
+
+  @@map("knowledge_documents")
+}
+
+model KnowledgeChunk {
+  id          String            @id @default(uuid())
+  documentId  String            @map("document_id")
+  chunkIndex  Int               @map("chunk_index")
+  content     String            @db.Text
+  metadata    Json
+  createdAt   DateTime          @default(now()) @map("created_at")
+
+  document    KnowledgeDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@map("knowledge_chunks")
+}
+
+// -------------------------------------------------------------
+// RECOMMENDATION & COMPLAINT WORKFLOW
+// -------------------------------------------------------------
+
+model Recommendation {
+  id                   String   @id @default(uuid())
+  scanId               String   @map("scan_id")
+  userId               String   @map("user_id")
+  recommendedProductId String   @map("recommended_product_id")
+  score                Decimal  @db.Decimal(5, 2)
+  matchReasons         Json     @map("match_reasons")
+  nutritionComparison  Json     @map("nutrition_comparison")
+  createdAt            DateTime @default(now()) @map("created_at")
+
+  scan                 Scan     @relation(fields: [scanId], references: [id], onDelete: Cascade)
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recommendedProduct   Product  @relation("RecommendedProduct", fields: [recommendedProductId], references: [id], onDelete: Cascade)
+
+  @@map("recommendations")
+}
+
+enum ComplaintStatus {
+  DRAFT
+  PREPARED
+  SUBMITTED_MANUALLY
+  RESOLVED
+}
+
+model Complaint {
+  id                String          @id @default(uuid())
+  userId            String          @map("user_id")
+  scanId            String          @map("scan_id")
+  productId         String?         @map("product_id")
+  complaintCategory String          @map("complaint_category")
+  detectedIssue     String          @map("detected_issue") @db.Text
+  generatedDraft    String          @map("generated_draft") @db.Text
+  userDescription   String?         @map("user_description") @db.Text
+  evidenceFiles     Json?           @map("evidence_files")
+  portalName        String          @default("FSSAI Food Safety Connect") @map("portal_name")
+  ticketNumber      String?         @map("ticket_number")
+  status            ComplaintStatus @default(DRAFT)
+  createdAt         DateTime        @default(now()) @map("created_at")
+  updatedAt         DateTime        @updatedAt @map("updated_at")
+
+  user              User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  scan              Scan            @relation(fields: [scanId], references: [id], onDelete: Cascade)
+  product           Product?        @relation(fields: [productId], references: [id], onDelete: SetNull)
+
+  @@map("complaints")
+}

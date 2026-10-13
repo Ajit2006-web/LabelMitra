@@ -1,0 +1,27 @@
+{
+  "product_id": "TEST-001",
+  "product_name": "Parle Glucose Biscuits",
+  "brand": "Parle",
+  "category": "Biscuits",
+  "net_quantity": "250 g",
+  "mrp": "Rs. 25.00",
+  "veg_status": "VEG",
+  "fssai_license": "10014047000120",
+  "batch_number": "B724A1",
+  "date_of_manufacture": "15/09/2026",
+  "best_before": "6 Months from packaging",
+  "ingredients_raw": "Wheat Flour (66%), Sugar, Edible Vegetable Oil (Palm Oil), Invert Sugar Syrup, Leavening Agents [INS 503(ii), INS 500(ii)], Salt, Milk Solids (1.1%), Emulsifiers [INS 322 (Soy Lecithin)], Dough Conditioner [INS 223] and Artificial Vanilla Flavour.",
+  "allergen_statement": "Contains Wheat, Milk and Soy. May contain traces of Nuts.",
+  "nutrition_per_100g": {
+    "energy_kcal": 454,
+    "protein_g": 6.5,
+    "carbohydrate_g": 78.0,
+    "total_sugar_g": 26.5,
+    "added_sugar_g": 25.0,
+    "fat_g": 13.0,
+    "saturated_fat_g": 6.5,
+    "trans_fat_g": 0.0,
+    "sodium_mg": 320.0
+  },
+  "manufacturer": "Parle Products Pvt. Ltd., V.S. Khandekar Marg, Vile Parle East, Mumbai - 400057, Maharashtra."
+}

@@ -1,0 +1,27 @@
+{
+  "product_id": "TEST-002",
+  "product_name": "Maggi 2-Minute Masala Noodles",
+  "brand": "Nestle Maggi",
+  "category": "Instant Noodles",
+  "net_quantity": "70 g",
+  "mrp": "Rs. 14.00",
+  "veg_status": "VEG",
+  "fssai_license": "10012011000168",
+  "batch_number": "M609B2",
+  "date_of_manufacture": "01/10/2026",
+  "best_before": "9 Months from packaging",
+  "ingredients_raw": "Noodles: Refined Wheat Flour (Maida), Palm Oil, Iodised Salt, Wheat Gluten, Thickeners (508, 412), Acidity Regulators [501(i), 500(i)], Humectant [451(i)]. Masala Tastemaker: Hydrolysed Groundnut Protein, Mixed Spices (23.6%) [Dehydrated Onion, Coriander Powder, Red Chilli Powder, Turmeric Powder, Garlic, Cumin, Clove, Nutmeg], Sugar, Starch, Salt, Flavour Enhancer (635), Caramel (150d).",
+  "allergen_statement": "Contains Wheat and Groundnut (Peanut). May contain Milk, Mustard and Soy.",
+  "nutrition_per_100g": {
+    "energy_kcal": 427,
+    "protein_g": 8.0,
+    "carbohydrate_g": 63.5,
+    "total_sugar_g": 2.2,
+    "added_sugar_g": 1.1,
+    "fat_g": 15.7,
+    "saturated_fat_g": 6.8,
+    "trans_fat_g": 0.12,
+    "sodium_mg": 1020.0
+  },
+  "manufacturer": "Nestle India Limited, 100/101 World Trade Centre, Barakhamba Lane, New Delhi - 110001."
+}

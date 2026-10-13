@@ -1,0 +1,33 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python / AI service
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Build artifacts
+dist/
+build/
+coverage/
+
+# Uploads and temporary images
+uploads/
+temp/
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
