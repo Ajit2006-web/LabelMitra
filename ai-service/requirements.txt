@@ -5,3 +5,7 @@ numpy>=1.26.0
 python-multipart>=0.0.9
 pydantic>=2.6.0
 pillow>=10.2.0
+
+
+paddleocr>=2.6.0
+easyocr>=1.7.1

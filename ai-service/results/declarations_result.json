@@ -1,0 +1,1476 @@
+{
+  "success": true,
+  "filename": "declarations.jpg",
+  "quality_metrics": {
+    "blur_score": 8868.18,
+    "is_blurry": false,
+    "brightness": 228.74,
+    "contrast": 58.01,
+    "quality_status": "OPTIMAL",
+    "recommendations": [],
+    "resolution": {
+      "width": 676,
+      "height": 468
+    }
+  },
+  "ocr_result": {
+    "engine": "EasyOCR",
+    "raw_text": "Mfg by For manufacturer 5 details see trst twvo characters of\nMARKETED BY: PepsiCo India Holdings\nDatch no\nana 5Er\nbelow\nPvt. Ltd.\nNI Pepsico India Holdings Pt Ltd , Lic No 10OIZO63OODID\nNZ Pepsico India Holdings Pt Ltd\nLic No 10012022000339.\nडिsaiं\nN३ Pepsico India Holdings Pt Ltd\nLic. No 10012031000120.\nDF Daawai Foods Ltd  Lic No 10012064000072\nHB Heemanksni Baxers PrLtd - Lic No 1०014047O0OO1OO\nMkt Lic No. 10014064000435\nAB  AFP Mlanulactunng CO Pn Ltd Lic No 10016033000284\nJD  MS JDB STEEL LLP Lic No 10017071000922\nFor Mkt address\nscan barcode\nGeo Nutri Foods PrL Ltd\nLic Na 10015031001657.\nFor feedback or queries write lindicating\nBodshah International PL Ltd\nLic No 10015051001429\nBatch No.\nand Manufacturing Date) toः\nINGREDIENTS Cercal Products I५७%J IRice Mcal ( ३८%l Corn\nTHE CONSUMER SERVICES MANAGER\nMeal Kl९%l Ed ble Vegctable Oil Palmoleinl\ncosoming\nSpices\nPEPSICO INDIA HOLDINGS PVT. LTD.,\nCondiments\nlodised Salt Acidity Requlotors (330 २९६|.\nFlavour (Natural and\n4)70072\nIdenticnl Flavouring Substancesl\nPO BOX Z7. DLF OUTAB ENCLAVE\nFlavour Enhancers\n६२७. 63१). Edible Veqetable Ol ICom Ol\nPHASE 1 GURUGRAM\n12002\nColor नlEOcJ Emulsifier (4१४J Gram\n/[6%|\nIlavouning aqent\nContains Onion and Carlic\nHARYANA, INDIA\nOR CALL US AT १८०० २२ 40२०\nALLERGEN ADVICE Contains Nut Soy Milk May Coniain\nSulphite\nOR EMAIL US AT CONSUMER\nFROPRIETARY FODD\nNAMKEEN (IS 1\nFEEDBACKaPEPSICO.COM\nAs Compared\nprevious Kurkure Masala Munch packs Limited\nPeniod oifer valid\nselect geographies Packs wiihout this otfer\nawalable\nB.NO:\n#MRP Rs २०.०० IINCL OF ALL TAXES)\nMFD:\nN.OTY: ९Og (81g+9g Extra)\nUSE BY:\n5-60*\n00c?",
+    "lines": [
+      {
+        "text": "Mfg by For manufacturer 5 details see trst twvo characters of",
+        "confidence": 0.4999,
+        "box": [
+          [
+            17.0,
+            15.0
+          ],
+          [
+            311.0,
+            15.0
+          ],
+          [
+            311.0,
+            29.0
+          ],
+          [
+            17.0,
+            29.0
+          ]
+        ]
+      },
+      {
+        "text": "MARKETED BY: PepsiCo India Holdings",
+        "confidence": 0.4692,
+        "box": [
+          [
+            391.0,
+            15.0
+          ],
+          [
+            663.0,
+            15.0
+          ],
+          [
+            663.0,
+            36.0
+          ],
+          [
+            391.0,
+            36.0
+          ]
+        ]
+      },
+      {
+        "text": "Datch no",
+        "confidence": 0.6613,
+        "box": [
+          [
+            17.0,
+            29.0
+          ],
+          [
+            61.0,
+            29.0
+          ],
+          [
+            61.0,
+            41.0
+          ],
+          [
+            17.0,
+            41.0
+          ]
+        ]
+      },
+      {
+        "text": "ana 5Er",
+        "confidence": 0.1836,
+        "box": [
+          [
+            66.0,
+            30.0
+          ],
+          [
+            102.0,
+            30.0
+          ],
+          [
+            102.0,
+            38.0
+          ],
+          [
+            66.0,
+            38.0
+          ]
+        ]
+      },
+      {
+        "text": "below",
+        "confidence": 0.9886,
+        "box": [
+          [
+            105.0,
+            29.0
+          ],
+          [
+            139.0,
+            29.0
+          ],
+          [
+            139.0,
+            43.0
+          ],
+          [
+            105.0,
+            43.0
+          ]
+        ]
+      },
+      {
+        "text": "Pvt. Ltd.",
+        "confidence": 0.5689,
+        "box": [
+          [
+            391.0,
+            37.0
+          ],
+          [
+            447.0,
+            37.0
+          ],
+          [
+            447.0,
+            53.0
+          ],
+          [
+            391.0,
+            53.0
+          ]
+        ]
+      },
+      {
+        "text": "NI Pepsico India Holdings Pt Ltd , Lic No 10OIZO63OODID",
+        "confidence": 0.2594,
+        "box": [
+          [
+            17.0,
+            53.0
+          ],
+          [
+            311.0,
+            53.0
+          ],
+          [
+            311.0,
+            69.0
+          ],
+          [
+            17.0,
+            69.0
+          ]
+        ]
+      },
+      {
+        "text": "NZ Pepsico India Holdings Pt Ltd",
+        "confidence": 0.7065,
+        "box": [
+          [
+            17.0,
+            66.0
+          ],
+          [
+            187.0,
+            66.0
+          ],
+          [
+            187.0,
+            84.0
+          ],
+          [
+            17.0,
+            84.0
+          ]
+        ]
+      },
+      {
+        "text": "Lic No 10012022000339.",
+        "confidence": 0.5923,
+        "box": [
+          [
+            191.0,
+            66.0
+          ],
+          [
+            317.0,
+            66.0
+          ],
+          [
+            317.0,
+            81.0
+          ],
+          [
+            191.0,
+            81.0
+          ]
+        ]
+      },
+      {
+        "text": "डिsaiं",
+        "confidence": 0.3178,
+        "box": [
+          [
+            481.0,
+            53.0
+          ],
+          [
+            581.0,
+            53.0
+          ],
+          [
+            581.0,
+            95.0
+          ],
+          [
+            481.0,
+            95.0
+          ]
+        ]
+      },
+      {
+        "text": "N३ Pepsico India Holdings Pt Ltd",
+        "confidence": 0.6393,
+        "box": [
+          [
+            17.0,
+            79.0
+          ],
+          [
+            187.0,
+            79.0
+          ],
+          [
+            187.0,
+            95.0
+          ],
+          [
+            17.0,
+            95.0
+          ]
+        ]
+      },
+      {
+        "text": "Lic. No 10012031000120.",
+        "confidence": 0.415,
+        "box": [
+          [
+            191.0,
+            80.0
+          ],
+          [
+            313.0,
+            80.0
+          ],
+          [
+            313.0,
+            93.0
+          ],
+          [
+            191.0,
+            93.0
+          ]
+        ]
+      },
+      {
+        "text": "DF Daawai Foods Ltd  Lic No 10012064000072",
+        "confidence": 0.4262,
+        "box": [
+          [
+            17.0,
+            93.0
+          ],
+          [
+            257.0,
+            93.0
+          ],
+          [
+            257.0,
+            107.0
+          ],
+          [
+            17.0,
+            107.0
+          ]
+        ]
+      },
+      {
+        "text": "HB Heemanksni Baxers PrLtd - Lic No 1०014047O0OO1OO",
+        "confidence": 0.0958,
+        "box": [
+          [
+            17.0,
+            107.0
+          ],
+          [
+            299.0,
+            107.0
+          ],
+          [
+            299.0,
+            119.0
+          ],
+          [
+            17.0,
+            119.0
+          ]
+        ]
+      },
+      {
+        "text": "Mkt Lic No. 10014064000435",
+        "confidence": 0.4772,
+        "box": [
+          [
+            391.0,
+            107.0
+          ],
+          [
+            599.0,
+            107.0
+          ],
+          [
+            599.0,
+            127.0
+          ],
+          [
+            391.0,
+            127.0
+          ]
+        ]
+      },
+      {
+        "text": "AB  AFP Mlanulactunng CO Pn Ltd Lic No 10016033000284",
+        "confidence": 0.4624,
+        "box": [
+          [
+            17.0,
+            118.0
+          ],
+          [
+            317.0,
+            118.0
+          ],
+          [
+            317.0,
+            133.0
+          ],
+          [
+            17.0,
+            133.0
+          ]
+        ]
+      },
+      {
+        "text": "JD  MS JDB STEEL LLP Lic No 10017071000922",
+        "confidence": 0.6333,
+        "box": [
+          [
+            17.0,
+            130.0
+          ],
+          [
+            256.0,
+            130.0
+          ],
+          [
+            256.0,
+            145.0
+          ],
+          [
+            17.0,
+            145.0
+          ]
+        ]
+      },
+      {
+        "text": "For Mkt address",
+        "confidence": 0.9949,
+        "box": [
+          [
+            391.0,
+            129.0
+          ],
+          [
+            507.0,
+            129.0
+          ],
+          [
+            507.0,
+            145.0
+          ],
+          [
+            391.0,
+            145.0
+          ]
+        ]
+      },
+      {
+        "text": "scan barcode",
+        "confidence": 0.5466,
+        "box": [
+          [
+            511.0,
+            129.0
+          ],
+          [
+            607.0,
+            129.0
+          ],
+          [
+            607.0,
+            145.0
+          ],
+          [
+            511.0,
+            145.0
+          ]
+        ]
+      },
+      {
+        "text": "Geo Nutri Foods PrL Ltd",
+        "confidence": 0.4945,
+        "box": [
+          [
+            43.0,
+            145.0
+          ],
+          [
+            161.0,
+            145.0
+          ],
+          [
+            161.0,
+            159.0
+          ],
+          [
+            43.0,
+            159.0
+          ]
+        ]
+      },
+      {
+        "text": "Lic Na 10015031001657.",
+        "confidence": 0.4723,
+        "box": [
+          [
+            165.0,
+            145.0
+          ],
+          [
+            287.0,
+            145.0
+          ],
+          [
+            287.0,
+            159.0
+          ],
+          [
+            165.0,
+            159.0
+          ]
+        ]
+      },
+      {
+        "text": "For feedback or queries write lindicating",
+        "confidence": 0.6835,
+        "box": [
+          [
+            391.0,
+            145.0
+          ],
+          [
+            667.0,
+            145.0
+          ],
+          [
+            667.0,
+            165.0
+          ],
+          [
+            391.0,
+            165.0
+          ]
+        ]
+      },
+      {
+        "text": "Bodshah International PL Ltd",
+        "confidence": 0.2732,
+        "box": [
+          [
+            37.0,
+            159.0
+          ],
+          [
+            181.0,
+            159.0
+          ],
+          [
+            181.0,
+            171.0
+          ],
+          [
+            37.0,
+            171.0
+          ]
+        ]
+      },
+      {
+        "text": "Lic No 10015051001429",
+        "confidence": 0.5773,
+        "box": [
+          [
+            185.0,
+            157.0
+          ],
+          [
+            307.0,
+            157.0
+          ],
+          [
+            307.0,
+            171.0
+          ],
+          [
+            185.0,
+            171.0
+          ]
+        ]
+      },
+      {
+        "text": "Batch No.",
+        "confidence": 0.6359,
+        "box": [
+          [
+            391.0,
+            165.0
+          ],
+          [
+            457.0,
+            165.0
+          ],
+          [
+            457.0,
+            181.0
+          ],
+          [
+            391.0,
+            181.0
+          ]
+        ]
+      },
+      {
+        "text": "and Manufacturing Date) toः",
+        "confidence": 0.5047,
+        "box": [
+          [
+            461.0,
+            164.0
+          ],
+          [
+            653.0,
+            164.0
+          ],
+          [
+            653.0,
+            183.0
+          ],
+          [
+            461.0,
+            183.0
+          ]
+        ]
+      },
+      {
+        "text": "INGREDIENTS Cercal Products I५७%J IRice Mcal ( ३८%l Corn",
+        "confidence": 0.1612,
+        "box": [
+          [
+            17.0,
+            183.0
+          ],
+          [
+            309.0,
+            183.0
+          ],
+          [
+            309.0,
+            199.0
+          ],
+          [
+            17.0,
+            199.0
+          ]
+        ]
+      },
+      {
+        "text": "THE CONSUMER SERVICES MANAGER",
+        "confidence": 0.7764,
+        "box": [
+          [
+            389.0,
+            181.0
+          ],
+          [
+            669.0,
+            181.0
+          ],
+          [
+            669.0,
+            201.0
+          ],
+          [
+            389.0,
+            201.0
+          ]
+        ]
+      },
+      {
+        "text": "Meal Kl९%l Ed ble Vegctable Oil Palmoleinl",
+        "confidence": 0.18,
+        "box": [
+          [
+            17.0,
+            197.0
+          ],
+          [
+            229.0,
+            197.0
+          ],
+          [
+            229.0,
+            211.0
+          ],
+          [
+            17.0,
+            211.0
+          ]
+        ]
+      },
+      {
+        "text": "cosoming",
+        "confidence": 0.4933,
+        "box": [
+          [
+            239.0,
+            199.0
+          ],
+          [
+            285.0,
+            199.0
+          ],
+          [
+            285.0,
+            211.0
+          ],
+          [
+            239.0,
+            211.0
+          ]
+        ]
+      },
+      {
+        "text": "Spices",
+        "confidence": 0.9937,
+        "box": [
+          [
+            293.0,
+            197.0
+          ],
+          [
+            329.0,
+            197.0
+          ],
+          [
+            329.0,
+            211.0
+          ],
+          [
+            293.0,
+            211.0
+          ]
+        ]
+      },
+      {
+        "text": "PEPSICO INDIA HOLDINGS PVT. LTD.,",
+        "confidence": 0.4772,
+        "box": [
+          [
+            389.0,
+            199.0
+          ],
+          [
+            659.0,
+            199.0
+          ],
+          [
+            659.0,
+            219.0
+          ],
+          [
+            389.0,
+            219.0
+          ]
+        ]
+      },
+      {
+        "text": "Condiments",
+        "confidence": 0.8754,
+        "box": [
+          [
+            29.0,
+            211.0
+          ],
+          [
+            89.0,
+            211.0
+          ],
+          [
+            89.0,
+            223.0
+          ],
+          [
+            29.0,
+            223.0
+          ]
+        ]
+      },
+      {
+        "text": "lodised Salt Acidity Requlotors (330 २९६|.",
+        "confidence": 0.3263,
+        "box": [
+          [
+            121.0,
+            211.0
+          ],
+          [
+            323.0,
+            211.0
+          ],
+          [
+            323.0,
+            225.0
+          ],
+          [
+            121.0,
+            225.0
+          ]
+        ]
+      },
+      {
+        "text": "Flavour (Natural and",
+        "confidence": 0.5531,
+        "box": [
+          [
+            17.0,
+            223.0
+          ],
+          [
+            115.0,
+            223.0
+          ],
+          [
+            115.0,
+            237.0
+          ],
+          [
+            17.0,
+            237.0
+          ]
+        ]
+      },
+      {
+        "text": "4)70072",
+        "confidence": 0.0005,
+        "box": [
+          [
+            118.0,
+            224.0
+          ],
+          [
+            148.0,
+            224.0
+          ],
+          [
+            148.0,
+            232.0
+          ],
+          [
+            118.0,
+            232.0
+          ]
+        ]
+      },
+      {
+        "text": "Identicnl Flavouring Substancesl",
+        "confidence": 0.4036,
+        "box": [
+          [
+            151.0,
+            222.0
+          ],
+          [
+            309.0,
+            222.0
+          ],
+          [
+            309.0,
+            237.0
+          ],
+          [
+            151.0,
+            237.0
+          ]
+        ]
+      },
+      {
+        "text": "PO BOX Z7. DLF OUTAB ENCLAVE",
+        "confidence": 0.3152,
+        "box": [
+          [
+            389.0,
+            219.0
+          ],
+          [
+            631.0,
+            219.0
+          ],
+          [
+            631.0,
+            237.0
+          ],
+          [
+            389.0,
+            237.0
+          ]
+        ]
+      },
+      {
+        "text": "Flavour Enhancers",
+        "confidence": 0.5715,
+        "box": [
+          [
+            17.0,
+            235.0
+          ],
+          [
+            107.0,
+            235.0
+          ],
+          [
+            107.0,
+            247.0
+          ],
+          [
+            17.0,
+            247.0
+          ]
+        ]
+      },
+      {
+        "text": "६२७. 63१). Edible Veqetable Ol ICom Ol",
+        "confidence": 0.1505,
+        "box": [
+          [
+            111.0,
+            235.0
+          ],
+          [
+            307.0,
+            235.0
+          ],
+          [
+            307.0,
+            251.0
+          ],
+          [
+            111.0,
+            251.0
+          ]
+        ]
+      },
+      {
+        "text": "PHASE 1 GURUGRAM",
+        "confidence": 0.5417,
+        "box": [
+          [
+            391.0,
+            239.0
+          ],
+          [
+            545.0,
+            239.0
+          ],
+          [
+            545.0,
+            255.0
+          ],
+          [
+            391.0,
+            255.0
+          ]
+        ]
+      },
+      {
+        "text": "12002",
+        "confidence": 0.9988,
+        "box": [
+          [
+            553.0,
+            239.0
+          ],
+          [
+            603.0,
+            239.0
+          ],
+          [
+            603.0,
+            257.0
+          ],
+          [
+            553.0,
+            257.0
+          ]
+        ]
+      },
+      {
+        "text": "Color नlEOcJ Emulsifier (4१४J Gram",
+        "confidence": 0.1801,
+        "box": [
+          [
+            17.0,
+            249.0
+          ],
+          [
+            183.0,
+            249.0
+          ],
+          [
+            183.0,
+            263.0
+          ],
+          [
+            17.0,
+            263.0
+          ]
+        ]
+      },
+      {
+        "text": "/[6%|",
+        "confidence": 0.4598,
+        "box": [
+          [
+            203.0,
+            249.0
+          ],
+          [
+            233.0,
+            249.0
+          ],
+          [
+            233.0,
+            263.0
+          ],
+          [
+            203.0,
+            263.0
+          ]
+        ]
+      },
+      {
+        "text": "Ilavouning aqent",
+        "confidence": 0.5457,
+        "box": [
+          [
+            35.0,
+            263.0
+          ],
+          [
+            119.0,
+            263.0
+          ],
+          [
+            119.0,
+            277.0
+          ],
+          [
+            35.0,
+            277.0
+          ]
+        ]
+      },
+      {
+        "text": "Contains Onion and Carlic",
+        "confidence": 0.681,
+        "box": [
+          [
+            127.0,
+            263.0
+          ],
+          [
+            255.0,
+            263.0
+          ],
+          [
+            255.0,
+            275.0
+          ],
+          [
+            127.0,
+            275.0
+          ]
+        ]
+      },
+      {
+        "text": "HARYANA, INDIA",
+        "confidence": 0.4189,
+        "box": [
+          [
+            389.0,
+            255.0
+          ],
+          [
+            511.0,
+            255.0
+          ],
+          [
+            511.0,
+            275.0
+          ],
+          [
+            389.0,
+            275.0
+          ]
+        ]
+      },
+      {
+        "text": "OR CALL US AT १८०० २२ 40२०",
+        "confidence": 0.4545,
+        "box": [
+          [
+            391.0,
+            275.0
+          ],
+          [
+            607.0,
+            275.0
+          ],
+          [
+            607.0,
+            293.0
+          ],
+          [
+            391.0,
+            293.0
+          ]
+        ]
+      },
+      {
+        "text": "ALLERGEN ADVICE Contains Nut Soy Milk May Coniain",
+        "confidence": 0.5057,
+        "box": [
+          [
+            17.0,
+            287.0
+          ],
+          [
+            297.0,
+            287.0
+          ],
+          [
+            297.0,
+            301.0
+          ],
+          [
+            17.0,
+            301.0
+          ]
+        ]
+      },
+      {
+        "text": "Sulphite",
+        "confidence": 0.9997,
+        "box": [
+          [
+            17.0,
+            301.0
+          ],
+          [
+            61.0,
+            301.0
+          ],
+          [
+            61.0,
+            315.0
+          ],
+          [
+            17.0,
+            315.0
+          ]
+        ]
+      },
+      {
+        "text": "OR EMAIL US AT CONSUMER",
+        "confidence": 0.6079,
+        "box": [
+          [
+            389.0,
+            293.0
+          ],
+          [
+            603.0,
+            293.0
+          ],
+          [
+            603.0,
+            311.0
+          ],
+          [
+            389.0,
+            311.0
+          ]
+        ]
+      },
+      {
+        "text": "FROPRIETARY FODD",
+        "confidence": 0.8151,
+        "box": [
+          [
+            17.0,
+            313.0
+          ],
+          [
+            123.0,
+            313.0
+          ],
+          [
+            123.0,
+            327.0
+          ],
+          [
+            17.0,
+            327.0
+          ]
+        ]
+      },
+      {
+        "text": "NAMKEEN (IS 1",
+        "confidence": 0.288,
+        "box": [
+          [
+            127.0,
+            313.0
+          ],
+          [
+            207.0,
+            313.0
+          ],
+          [
+            207.0,
+            327.0
+          ],
+          [
+            127.0,
+            327.0
+          ]
+        ]
+      },
+      {
+        "text": "FEEDBACKaPEPSICO.COM",
+        "confidence": 0.4412,
+        "box": [
+          [
+            389.0,
+            310.0
+          ],
+          [
+            589.0,
+            310.0
+          ],
+          [
+            589.0,
+            330.0
+          ],
+          [
+            389.0,
+            330.0
+          ]
+        ]
+      },
+      {
+        "text": "As Compared",
+        "confidence": 0.862,
+        "box": [
+          [
+            19.0,
+            326.0
+          ],
+          [
+            87.0,
+            326.0
+          ],
+          [
+            87.0,
+            340.0
+          ],
+          [
+            19.0,
+            340.0
+          ]
+        ]
+      },
+      {
+        "text": "previous Kurkure Masala Munch packs Limited",
+        "confidence": 0.6932,
+        "box": [
+          [
+            101.0,
+            327.0
+          ],
+          [
+            327.0,
+            327.0
+          ],
+          [
+            327.0,
+            341.0
+          ],
+          [
+            101.0,
+            341.0
+          ]
+        ]
+      },
+      {
+        "text": "Peniod oifer valid",
+        "confidence": 0.6774,
+        "box": [
+          [
+            17.0,
+            339.0
+          ],
+          [
+            103.0,
+            339.0
+          ],
+          [
+            103.0,
+            353.0
+          ],
+          [
+            17.0,
+            353.0
+          ]
+        ]
+      },
+      {
+        "text": "select geographies Packs wiihout this otfer",
+        "confidence": 0.2933,
+        "box": [
+          [
+            113.0,
+            339.0
+          ],
+          [
+            323.0,
+            339.0
+          ],
+          [
+            323.0,
+            353.0
+          ],
+          [
+            113.0,
+            353.0
+          ]
+        ]
+      },
+      {
+        "text": "awalable",
+        "confidence": 0.5031,
+        "box": [
+          [
+            42.0,
+            354.0
+          ],
+          [
+            84.0,
+            354.0
+          ],
+          [
+            84.0,
+            362.0
+          ],
+          [
+            42.0,
+            362.0
+          ]
+        ]
+      },
+      {
+        "text": "B.NO:",
+        "confidence": 0.907,
+        "box": [
+          [
+            395.0,
+            357.0
+          ],
+          [
+            437.0,
+            357.0
+          ],
+          [
+            437.0,
+            371.0
+          ],
+          [
+            395.0,
+            371.0
+          ]
+        ]
+      },
+      {
+        "text": "#MRP Rs २०.०० IINCL OF ALL TAXES)",
+        "confidence": 0.3897,
+        "box": [
+          [
+            17.0,
+            377.0
+          ],
+          [
+            293.0,
+            377.0
+          ],
+          [
+            293.0,
+            397.0
+          ],
+          [
+            17.0,
+            397.0
+          ]
+        ]
+      },
+      {
+        "text": "MFD:",
+        "confidence": 0.721,
+        "box": [
+          [
+            395.0,
+            383.0
+          ],
+          [
+            435.0,
+            383.0
+          ],
+          [
+            435.0,
+            399.0
+          ],
+          [
+            395.0,
+            399.0
+          ]
+        ]
+      },
+      {
+        "text": "N.OTY: ९Og (81g+9g Extra)",
+        "confidence": 0.2555,
+        "box": [
+          [
+            16.0,
+            412.0
+          ],
+          [
+            202.0,
+            412.0
+          ],
+          [
+            202.0,
+            436.0
+          ],
+          [
+            16.0,
+            436.0
+          ]
+        ]
+      },
+      {
+        "text": "USE BY:",
+        "confidence": 0.4221,
+        "box": [
+          [
+            395.0,
+            409.0
+          ],
+          [
+            451.0,
+            409.0
+          ],
+          [
+            451.0,
+            425.0
+          ],
+          [
+            395.0,
+            425.0
+          ]
+        ]
+      },
+      {
+        "text": "5-60*",
+        "confidence": 0.2233,
+        "box": [
+          [
+            89.3902892391503,
+            209.2073760108954
+          ],
+          [
+            120.98177985059029,
+            213.80997809343413
+          ],
+          [
+            119.6097107608497,
+            223.7926239891046
+          ],
+          [
+            88.01822014940971,
+            220.19002190656587
+          ]
+        ]
+      },
+      {
+        "text": "00c?",
+        "confidence": 0.048,
+        "box": [
+          [
+            181.39028923915032,
+            247.2073760108954
+          ],
+          [
+            204.9771763639228,
+            251.78757035566895
+          ],
+          [
+            203.60971076084968,
+            261.7926239891046
+          ],
+          [
+            180.0228236360772,
+            257.21242964433105
+          ]
+        ]
+      }
+    ],
+    "confidence_score": 51.2,
+    "line_count": 66
+  }
+}

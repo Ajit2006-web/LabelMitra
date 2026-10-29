@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { ShieldCheck, User, LogOut, LogIn, UserPlus, ScanLine } from 'lucide-react';
 
 export default function Navbar() {
-  const { user, logout, isAuthenticated } = useAuth();
+  const { user, logout, isAuthenticated, profileData } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -41,11 +41,10 @@ export default function Navbar() {
                 {/* Scan — primary action for authenticated users */}
                 <Link
                   to="/scan"
-                  className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-button transition-colors ${
-                    isActive('/scan')
-                      ? 'bg-gold-500 text-forest-950'
-                      : 'bg-forest-900 hover:bg-gold-500/10 text-gold-400 hover:text-gold-300 border border-gold-500/30 hover:border-gold-500/60'
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-button transition-colors ${isActive('/scan')
+                    ? 'bg-gold-500 text-forest-950'
+                    : 'bg-forest-900 hover:bg-gold-500/10 text-gold-400 hover:text-gold-300 border border-gold-500/30 hover:border-gold-500/60'
+                    }`}
                 >
                   <ScanLine className="w-4 h-4" />
                   <span>Scan Label</span>
@@ -53,11 +52,10 @@ export default function Navbar() {
 
                 <Link
                   to="/profile"
-                  className={`flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-button transition-colors ${
-                    isActive('/profile')
-                      ? 'bg-forest-800 border border-forest-700 text-ivory-100'
-                      : 'text-sage-300 hover:text-ivory-100 hover:bg-forest-850 border border-transparent hover:border-forest-700'
-                  }`}
+                  className={`flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-button transition-colors ${isActive('/profile')
+                    ? 'bg-forest-800 border border-forest-700 text-ivory-100'
+                    : 'text-sage-300 hover:text-ivory-100 hover:bg-forest-850 border border-transparent hover:border-forest-700'
+                    }`}
                 >
                   <User className="w-4 h-4 text-gold-500" />
                   <span>Profile</span>
@@ -66,7 +64,7 @@ export default function Navbar() {
                 <div className="h-5 w-px bg-forest-700 mx-1"></div>
                 <div className="text-xs text-sage-400 hidden md:block">
                   <span>Hi, </span>
-                  <span className="font-medium text-ivory-100">{user?.email?.split('@')[0]}</span>
+                  <span className="font-medium text-ivory-100">{profileData?.profile?.fullName?.split(' ')[0] || user?.email?.split('@')[0] || ''}</span>
                 </div>
                 <button
                   onClick={handleLogout}

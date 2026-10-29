@@ -1,0 +1,574 @@
+{
+  "success": true,
+  "filename": "ingredents.jpg",
+  "quality_metrics": {
+    "blur_score": 7097.41,
+    "is_blurry": false,
+    "brightness": 226.94,
+    "contrast": 49.77,
+    "quality_status": "OPTIMAL",
+    "recommendations": [],
+    "resolution": {
+      "width": 349,
+      "height": 194
+    }
+  },
+  "ocr_result": {
+    "engine": "EasyOCR",
+    "raw_text": "INGREDIENTS Cerenl Products IS७YJIRce\n(38%) Corn\nMonl Kig%l Ed ble Vegctable O Palmoleinl    Seasonina ( Spices\nCondiments Suanr lodised\nAcid ty Requlators (३३0 २९६.\nFlavour INatural and Nnlure Identical Flavouring Substancesl\nFlavour Enhancers |६२७ ६३१. Ediole Veqetable OlICorn Ol\nColor IEOcJ Emulsifier I4i4J Gram Meal I६१/\nIavounng agent\nContains\nGarlic\nALLERGENADVICE Contains Nut Soy Milk May Contain\nSulphite\nFROPRIETARY FOOD\nNAMKEEN (IS 1\nAs Compared\nprevious Kurkure\noa5a 1\nMunch packs Limited\nDenoo\nPterwalia\nselect geographies Packs Wiihaut this otfer\navailable\nMro |\nOmion",
+    "lines": [
+      {
+        "text": "INGREDIENTS Cerenl Products IS७YJIRce",
+        "confidence": 0.1389,
+        "box": [
+          [
+            23.0,
+            6.0
+          ],
+          [
+            231.0,
+            6.0
+          ],
+          [
+            231.0,
+            21.0
+          ],
+          [
+            23.0,
+            21.0
+          ]
+        ]
+      },
+      {
+        "text": "(38%) Corn",
+        "confidence": 0.637,
+        "box": [
+          [
+            255.0,
+            7.0
+          ],
+          [
+            315.0,
+            7.0
+          ],
+          [
+            315.0,
+            21.0
+          ],
+          [
+            255.0,
+            21.0
+          ]
+        ]
+      },
+      {
+        "text": "Monl Kig%l Ed ble Vegctable O Palmoleinl    Seasonina ( Spices",
+        "confidence": 0.0766,
+        "box": [
+          [
+            23.0,
+            21.0
+          ],
+          [
+            333.0,
+            21.0
+          ],
+          [
+            333.0,
+            35.0
+          ],
+          [
+            23.0,
+            35.0
+          ]
+        ]
+      },
+      {
+        "text": "Condiments Suanr lodised",
+        "confidence": 0.3845,
+        "box": [
+          [
+            33.0,
+            33.0
+          ],
+          [
+            163.0,
+            33.0
+          ],
+          [
+            163.0,
+            47.0
+          ],
+          [
+            33.0,
+            47.0
+          ]
+        ]
+      },
+      {
+        "text": "Acid ty Requlators (३३0 २९६.",
+        "confidence": 0.3458,
+        "box": [
+          [
+            187.0,
+            33.0
+          ],
+          [
+            327.0,
+            33.0
+          ],
+          [
+            327.0,
+            47.0
+          ],
+          [
+            187.0,
+            47.0
+          ]
+        ]
+      },
+      {
+        "text": "Flavour INatural and Nnlure Identical Flavouring Substancesl",
+        "confidence": 0.4607,
+        "box": [
+          [
+            23.0,
+            47.0
+          ],
+          [
+            315.0,
+            47.0
+          ],
+          [
+            315.0,
+            61.0
+          ],
+          [
+            23.0,
+            61.0
+          ]
+        ]
+      },
+      {
+        "text": "Flavour Enhancers |६२७ ६३१. Ediole Veqetable OlICorn Ol",
+        "confidence": 0.2412,
+        "box": [
+          [
+            22.0,
+            58.0
+          ],
+          [
+            313.0,
+            58.0
+          ],
+          [
+            313.0,
+            73.0
+          ],
+          [
+            22.0,
+            73.0
+          ]
+        ]
+      },
+      {
+        "text": "Color IEOcJ Emulsifier I4i4J Gram Meal I६१/",
+        "confidence": 0.1255,
+        "box": [
+          [
+            23.0,
+            73.0
+          ],
+          [
+            237.0,
+            73.0
+          ],
+          [
+            237.0,
+            85.0
+          ],
+          [
+            23.0,
+            85.0
+          ]
+        ]
+      },
+      {
+        "text": "Iavounng agent",
+        "confidence": 0.5704,
+        "box": [
+          [
+            40.0,
+            84.0
+          ],
+          [
+            123.0,
+            84.0
+          ],
+          [
+            123.0,
+            100.0
+          ],
+          [
+            40.0,
+            100.0
+          ]
+        ]
+      },
+      {
+        "text": "Contains",
+        "confidence": 0.9989,
+        "box": [
+          [
+            130.0,
+            84.0
+          ],
+          [
+            175.0,
+            84.0
+          ],
+          [
+            175.0,
+            98.0
+          ],
+          [
+            130.0,
+            98.0
+          ]
+        ]
+      },
+      {
+        "text": "Garlic",
+        "confidence": 0.5226,
+        "box": [
+          [
+            227.0,
+            85.0
+          ],
+          [
+            259.0,
+            85.0
+          ],
+          [
+            259.0,
+            99.0
+          ],
+          [
+            227.0,
+            99.0
+          ]
+        ]
+      },
+      {
+        "text": "ALLERGENADVICE Contains Nut Soy Milk May Contain",
+        "confidence": 0.4723,
+        "box": [
+          [
+            23.0,
+            111.0
+          ],
+          [
+            301.0,
+            111.0
+          ],
+          [
+            301.0,
+            125.0
+          ],
+          [
+            23.0,
+            125.0
+          ]
+        ]
+      },
+      {
+        "text": "Sulphite",
+        "confidence": 0.7145,
+        "box": [
+          [
+            23.0,
+            125.0
+          ],
+          [
+            65.0,
+            125.0
+          ],
+          [
+            65.0,
+            137.0
+          ],
+          [
+            23.0,
+            137.0
+          ]
+        ]
+      },
+      {
+        "text": "FROPRIETARY FOOD",
+        "confidence": 0.6097,
+        "box": [
+          [
+            23.0,
+            135.0
+          ],
+          [
+            129.0,
+            135.0
+          ],
+          [
+            129.0,
+            149.0
+          ],
+          [
+            23.0,
+            149.0
+          ]
+        ]
+      },
+      {
+        "text": "NAMKEEN (IS 1",
+        "confidence": 0.4355,
+        "box": [
+          [
+            133.0,
+            137.0
+          ],
+          [
+            211.0,
+            137.0
+          ],
+          [
+            211.0,
+            151.0
+          ],
+          [
+            133.0,
+            151.0
+          ]
+        ]
+      },
+      {
+        "text": "As Compared",
+        "confidence": 0.4539,
+        "box": [
+          [
+            23.0,
+            151.0
+          ],
+          [
+            95.0,
+            151.0
+          ],
+          [
+            95.0,
+            163.0
+          ],
+          [
+            23.0,
+            163.0
+          ]
+        ]
+      },
+      {
+        "text": "previous Kurkure",
+        "confidence": 0.8782,
+        "box": [
+          [
+            105.0,
+            151.0
+          ],
+          [
+            187.0,
+            151.0
+          ],
+          [
+            187.0,
+            163.0
+          ],
+          [
+            105.0,
+            163.0
+          ]
+        ]
+      },
+      {
+        "text": "oa5a 1",
+        "confidence": 0.0791,
+        "box": [
+          [
+            190.0,
+            152.0
+          ],
+          [
+            222.0,
+            152.0
+          ],
+          [
+            222.0,
+            160.0
+          ],
+          [
+            190.0,
+            160.0
+          ]
+        ]
+      },
+      {
+        "text": "Munch packs Limited",
+        "confidence": 0.8865,
+        "box": [
+          [
+            225.0,
+            149.0
+          ],
+          [
+            331.0,
+            149.0
+          ],
+          [
+            331.0,
+            165.0
+          ],
+          [
+            225.0,
+            165.0
+          ]
+        ]
+      },
+      {
+        "text": "Denoo",
+        "confidence": 0.7674,
+        "box": [
+          [
+            24.0,
+            166.0
+          ],
+          [
+            54.0,
+            166.0
+          ],
+          [
+            54.0,
+            174.0
+          ],
+          [
+            24.0,
+            174.0
+          ]
+        ]
+      },
+      {
+        "text": "Pterwalia",
+        "confidence": 0.056,
+        "box": [
+          [
+            58.0,
+            164.0
+          ],
+          [
+            106.0,
+            164.0
+          ],
+          [
+            106.0,
+            172.0
+          ],
+          [
+            58.0,
+            172.0
+          ]
+        ]
+      },
+      {
+        "text": "select geographies Packs Wiihaut this otfer",
+        "confidence": 0.3966,
+        "box": [
+          [
+            119.0,
+            163.0
+          ],
+          [
+            329.0,
+            163.0
+          ],
+          [
+            329.0,
+            177.0
+          ],
+          [
+            119.0,
+            177.0
+          ]
+        ]
+      },
+      {
+        "text": "available",
+        "confidence": 0.986,
+        "box": [
+          [
+            45.0,
+            175.0
+          ],
+          [
+            91.0,
+            175.0
+          ],
+          [
+            91.0,
+            189.0
+          ],
+          [
+            45.0,
+            189.0
+          ]
+        ]
+      },
+      {
+        "text": "Mro |",
+        "confidence": 0.0281,
+        "box": [
+          [
+            231.44529980377476,
+            5.167949705662156
+          ],
+          [
+            256.96561575852064,
+            9.740026526552127
+          ],
+          [
+            255.55470019622524,
+            21.832050294337844
+          ],
+          [
+            229.03438424147933,
+            17.25997347344787
+          ]
+        ]
+      },
+      {
+        "text": "Omion",
+        "confidence": 0.5024,
+        "box": [
+          [
+            175.39028923915032,
+            83.2073760108954
+          ],
+          [
+            206.98724112071264,
+            87.84076756117538
+          ],
+          [
+            205.60971076084968,
+            97.7926239891046
+          ],
+          [
+            174.01275887928736,
+            93.15923243882462
+          ]
+        ]
+      }
+    ],
+    "confidence_score": 47.07,
+    "line_count": 25
+  }
+}

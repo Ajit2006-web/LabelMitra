@@ -1,5 +1,8 @@
 import prisma from '../config/database.js';
 import { processImageWithOCR } from './ocrClient.js';
+import { extractStructuredProductInfo } from './extractionService.js';
+import { enrichIngredientsWithKnowledge } from './ingredientService.js';
+import { evaluateScanAllergies } from './allergyService.js';
 
 export async function processMultiPanelScan(userId, uploadedFiles) {
   // uploadedFiles: array of { fieldname, path, filename, originalname, size, mimetype }
@@ -62,6 +65,22 @@ export async function processMultiPanelScan(userId, uploadedFiles) {
     .map((r) => `--- [PANEL: ${r.imageSide}] ---\n${r.rawText}`)
     .join('\n\n');
 
+  // 4. Phase 3: Structured Information Extraction Pipeline
+  const structuredProductData = extractStructuredProductInfo(ocrResults);
+
+  // 5. Phase 4: Ingredient Knowledge Enrichment & Personalized Allergy Evaluation
+  const userAllergies = await prisma.userAllergy.findMany({
+    where: { userId },
+  });
+
+  if (structuredProductData?.ingredients?.items) {
+    structuredProductData.ingredients.enriched_items = enrichIngredientsWithKnowledge(
+      structuredProductData.ingredients.items
+    );
+  }
+
+  const personalizedAllergyAssessment = evaluateScanAllergies(userAllergies, structuredProductData);
+
   const updatedScan = await prisma.scan.update({
     where: { id: scan.id },
     data: {
@@ -70,6 +89,8 @@ export async function processMultiPanelScan(userId, uploadedFiles) {
       extractedData: {
         composite_raw_text: aggregatedRawText,
         panels_count: uploadedFiles.length,
+        ...structuredProductData,
+        personalized_allergy_assessment: personalizedAllergyAssessment,
       },
       overallSummary: {
         panels_processed: ocrResults.map((r) => ({
@@ -79,6 +100,12 @@ export async function processMultiPanelScan(userId, uploadedFiles) {
           quality: r.qualityMetrics?.quality_status || 'OPTIMAL',
         })),
         composite_confidence: compositeConfidence,
+        extraction_summary: structuredProductData.extraction_summary,
+        allergy_assessment_summary: {
+          status: personalizedAllergyAssessment.status,
+          headline: personalizedAllergyAssessment.headline,
+          matches_count: personalizedAllergyAssessment.matches.length,
+        },
       },
     },
     include: {
@@ -110,6 +137,17 @@ export async function getScanById(userId, scanId) {
     const error = new Error('Scan record not found or does not belong to you.');
     error.statusCode = 404;
     throw error;
+  }
+
+  // Refresh personalized allergy assessment if extractedData is present
+  if (scan.extractedData && typeof scan.extractedData === 'object') {
+    const userAllergies = await prisma.userAllergy.findMany({
+      where: { userId },
+    });
+    scan.extractedData.personalized_allergy_assessment = evaluateScanAllergies(
+      userAllergies,
+      scan.extractedData
+    );
   }
 
   return scan;

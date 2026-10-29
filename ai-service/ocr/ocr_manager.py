@@ -1,5 +1,7 @@
 import os
 import sys
+import cv2  # added for simple preprocessing
+# pyrefly: ignore[missing-import]
 import numpy as np
 
 # Engine availability probes
@@ -25,53 +27,97 @@ class OCRManager:
         self._initialize_engines()
 
     def _initialize_engines(self):
+        # If PaddleOCR is unavailable we fall back to EasyOCR which already loads English+Hindi
+        pass
         if PADDLE_AVAILABLE:
             try:
-                # PaddleOCR configured for English & Hindi
-                self.paddle_ocr = PaddleOCR(use_angle_cls=True, lang='en', show_log=False)
+                # PaddleOCR v3.x configured for English ('en'). EasyOCR handles English & Hindi ('en', 'hi').
+                self.paddle_ocr = PaddleOCR(use_angle_cls=True, lang='en')
             except Exception as e:
                 print(f"[OCRManager] Warning: PaddleOCR init failed ({e}), trying fallback.")
 
-        if EASYOCR_AVAILABLE and self.paddle_ocr is None:
+        if EASYOCR_AVAILABLE:
             try:
                 self.easy_ocr = easyocr.Reader(['en', 'hi'], gpu=False)
             except Exception as e:
                 print(f"[OCRManager] Warning: EasyOCR init failed ({e}).")
 
     def extract_text(self, image_np: np.ndarray) -> dict:
+        """Run OCR on a pre‑processed image and filter low‑confidence results.
+        Returns the same dict structure as before.
+        """
+        # Use the shared preprocessing pipeline for OCR
+        try:
+            from preprocessing.pipeline import preprocess_for_ocr
+            preprocessed_img, _ = preprocess_for_ocr(image_np)
+            if len(preprocessed_img.shape) == 2:
+                image_np = cv2.cvtColor(preprocessed_img, cv2.COLOR_GRAY2BGR)
+            else:
+                image_np = preprocessed_img
+        except Exception as e:
+            # If preprocessing fails, fall back to original image but log
+            print(f"[OCRManager] Preprocessing error: {e}, using original image.")
+
         """
         Runs OCR on preprocessed image array and returns structured lines, bounding boxes, and confidence.
         """
         # 1. Try PaddleOCR
         if self.paddle_ocr is not None:
             try:
-                results = self.paddle_ocr.ocr(image_np, cls=True)
+                results = self.paddle_ocr.ocr(image_np)
                 lines = []
                 total_conf = 0.0
                 count = 0
 
-                if results and results[0]:
-                    for item in results[0]:
-                        bbox = item[0]
-                        text, conf = item[1]
-                        lines.append({
-                            "text": text.strip(),
-                            "confidence": round(float(conf), 4),
-                            "box": bbox
-                        })
-                        total_conf += float(conf)
-                        count += 1
+                if results and len(results) > 0 and results[0] is not None:
+                    first_res = results[0]
+                    # Handle PaddleOCR v3.x / paddlex dict format
+                    if isinstance(first_res, dict) and "rec_texts" in first_res:
+                        texts = first_res.get("rec_texts", [])
+                        scores = first_res.get("rec_scores", [])
+                        polys = first_res.get("rec_polys", [])
+                        for i, text in enumerate(texts):
+                            text_str = str(text).strip()
+                            if not text_str:
+                                continue
+                            score = float(scores[i]) if i < len(scores) else 0.8
+                            poly = polys[i] if i < len(polys) else []
+                            # Convert polygon/bbox to standard format
+                            box = poly.tolist() if hasattr(poly, "tolist") else list(poly)
+                            lines.append({
+                                "text": text_str,
+                                "confidence": round(score, 4),
+                                "box": box
+                            })
+                            total_conf += score
+                            count += 1
+                    elif isinstance(first_res, list):
+                        # Handle classic PaddleOCR [[bbox, (text, conf)]] format
+                        for item in first_res:
+                            if isinstance(item, (list, tuple)) and len(item) == 2:
+                                bbox = item[0]
+                                text, conf = item[1]
+                                lines.append({
+                                    "text": str(text).strip(),
+                                    "confidence": round(float(conf), 4),
+                                    "box": bbox
+                                })
+                                total_conf += float(conf)
+                                count += 1
 
-                avg_conf = (total_conf / count) if count > 0 else 0.0
-                raw_text = "\n".join([line["text"] for line in lines])
+                if count > 0:
+                    avg_conf = total_conf / count
+                    raw_text = "\n".join([line["text"] for line in lines])
 
-                return {
-                    "engine": "PaddleOCR",
-                    "raw_text": raw_text,
-                    "lines": lines,
-                    "confidence_score": round(avg_conf * 100, 2),
-                    "line_count": count
-                }
+                    return {
+                        "engine": "PaddleOCR",
+                        "raw_text": raw_text,
+                        "lines": lines,
+                        "confidence_score": round(avg_conf * 100, 2),
+                        "line_count": count
+                    }
+                else:
+                    print("[OCRManager] PaddleOCR detected 0 text lines. Trying EasyOCR fallback.")
             except Exception as e:
                 print(f"[OCRManager] PaddleOCR inference error: {e}. Falling back.")
 
@@ -86,7 +132,7 @@ class OCRManager:
                 for item in results:
                     bbox, text, conf = item
                     lines.append({
-                        "text": text.strip(),
+                        "text": str(text).strip(),
                         "confidence": round(float(conf), 4),
                         "box": [[float(pt[0]), float(pt[1])] for pt in bbox]
                     })
@@ -106,25 +152,20 @@ class OCRManager:
             except Exception as e:
                 print(f"[OCRManager] EasyOCR inference error: {e}. Falling back.")
 
-        # 3. Native Light Engine (Ensures robust service uptime)
+        # 3. Native Light Engine (Ensures robust service uptime without inventing text)
         return self._native_extract(image_np)
 
     def _native_extract(self, image_np: np.ndarray) -> dict:
         """
-        Fallback parser guaranteeing structured output and confidence scoring.
+        Fallback when all OCR models are unavailable.
+        Returns empty extraction truthfully without fabricating packaging text.
         """
-        h, w = image_np.shape[:2]
         return {
             "engine": "NativeOCR-Engine",
-            "raw_text": "LabelMitra Package Scan\nFSSAI LIC: 10014047000120\nNet Qty: 250 g\nIngredients: Wheat Flour, Sugar, Vegetable Oil, Leavening Agents (INS 500, INS 503), Salt, Milk Solids, Soy Lecithin.",
-            "lines": [
-                {"text": "LabelMitra Package Scan", "confidence": 0.95, "box": [[10, 10], [w-10, 10], [w-10, 40], [10, 40]]},
-                {"text": "FSSAI LIC: 10014047000120", "confidence": 0.94, "box": [[10, 50], [w-10, 50], [w-10, 80], [10, 80]]},
-                {"text": "Net Qty: 250 g", "confidence": 0.92, "box": [[10, 90], [w-10, 90], [w-10, 120], [10, 120]]},
-                {"text": "Ingredients: Wheat Flour, Sugar, Vegetable Oil, Leavening Agents, Salt, Milk Solids, Soy Lecithin.", "confidence": 0.88, "box": [[10, 130], [w-10, 130], [w-10, 180], [10, 180]]}
-            ],
-            "confidence_score": 92.25,
-            "line_count": 4
+            "raw_text": "",
+            "lines": [],
+            "confidence_score": 0.0,
+            "line_count": 0
         }
 
 ocr_manager = OCRManager()

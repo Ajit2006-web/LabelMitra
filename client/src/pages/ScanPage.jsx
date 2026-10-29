@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import PanelSlotUploader from '../components/scan/PanelSlotUploader';
 import OCRConfidenceGauge from '../components/scan/OCRConfidenceGauge';
+import StructuredExtractionView from '../components/scan/StructuredExtractionView';
+import PersonalizedAllergyView from '../components/scan/PersonalizedAllergyView';
 import {
   Loader2,
   ScanLine,
@@ -17,6 +19,9 @@ import {
 
 const ENGINE_BADGE = {
   paddleocr: { label: 'PaddleOCR', color: 'text-emerald-300 bg-emerald-950/60 border-emerald-800' },
+  easyocr: { label: 'EasyOCR', color: 'text-sky-300 bg-sky-950/60 border-sky-800' },
+  'service-offline': { label: 'AI Service Offline', color: 'text-rose-300 bg-rose-950/60 border-rose-800' },
+  'nativeocr-adapter': { label: 'Test Adapter', color: 'text-amber-300 bg-amber-950/60 border-amber-800' },
   fallback: { label: 'Fallback Parser', color: 'text-amber-300 bg-amber-950/60 border-amber-800' },
 };
 
@@ -58,7 +63,9 @@ export default function ScanPage() {
       if (!res.ok) throw new Error(data.message || 'Upload failed');
       setResult(data.data);
       setTimeout(() => {
-        document.getElementById('scan-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (typeof document !== 'undefined') {
+          document.getElementById('scan-results')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }, 100);
     } catch (err) {
       setErrorMsg(err.message);
@@ -246,6 +253,18 @@ export default function ScanPage() {
                 analysis modules.
               </p>
             </div>
+          )}
+
+          {/* Phase 4: Personalized Allergy Matching */}
+          {result.scan?.extractedData?.personalized_allergy_assessment && (
+            <PersonalizedAllergyView
+              assessment={result.scan.extractedData.personalized_allergy_assessment}
+            />
+          )}
+
+          {/* Phase 3: Structured Product Information View */}
+          {result.scan?.extractedData && (
+            <StructuredExtractionView extractedData={result.scan.extractedData} />
           )}
 
           {/* Per-panel cards */}
